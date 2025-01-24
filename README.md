@@ -1,7 +1,9 @@
 CRM Backend System
+
 This project is a backend system for a basic Customer Relationship Management (CRM) application. The system manages customer data, including contacts, companies, and interactions. The primary aim is to create a scalable, secure, and well-documented API that can handle CRUD operations, user authentication, and data validations.
 
 Table of Contents
+
 Project Overview
 
 Installation
