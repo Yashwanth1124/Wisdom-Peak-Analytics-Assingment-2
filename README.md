@@ -255,4 +255,4 @@ This project is licensed under the MIT License. See the LICENSE file for details
 This project is a part of the Wisdom Peak Analytics Backend Assignment. Built with Node.js, Express, MongoDB, and various other npm packages.
 ```
 
-Copy and save the above content as `README.md` in your project directory.
+
