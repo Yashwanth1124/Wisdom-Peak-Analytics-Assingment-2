@@ -1,29 +1,30 @@
 const express = require('express');
 const { check } = require('express-validator');
 const customerController = require('../controllers/customerController');
-const authMiddleware = require('../middlewares/authMiddleware');
-const roleMiddleware = require('../middlewares/roleMiddleware');
+const authMiddleware = require('../middlewares/authMiddleware'); // Ensure this import is correct
 
 const router = express.Router();
 
+// Use the authMiddleware to protect all routes
 router.use(authMiddleware);
 
+// Define the routes and the corresponding controllers
 router.post('/', [
     check('name').notEmpty().withMessage('Name is required'),
     check('email').isEmail().withMessage('Valid email is required'),
     check('phone').notEmpty().withMessage('Phone number is required')
-], roleMiddleware(['admin', 'user']), customerController.createCustomer);
+], customerController.createCustomer);
 
-router.get('/', roleMiddleware(['admin', 'user']), customerController.getCustomers);
+router.get('/', customerController.getCustomers);
 
-router.get('/:id', roleMiddleware(['admin', 'user']), customerController.getCustomerById);
+router.get('/:id', customerController.getCustomerById);
 
 router.put('/:id', [
     check('name').notEmpty().withMessage('Name is required'),
     check('email').isEmail().withMessage('Valid email is required'),
     check('phone').notEmpty().withMessage('Phone number is required')
-], roleMiddleware(['admin']), customerController.updateCustomer);
+], customerController.updateCustomer);
 
-router.delete('/:id', roleMiddleware(['admin']), customerController.deleteCustomer);
+router.delete('/:id', customerController.deleteCustomer);
 
 module.exports = router;

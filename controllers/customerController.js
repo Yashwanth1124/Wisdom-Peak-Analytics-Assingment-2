@@ -71,7 +71,7 @@ exports.deleteCustomer = async (req, res) => {
             return res.status(404).json({ error: 'Customer not found' });
         }
 
-        res.status(204).json({ message: 'Customer deleted successfully' });
+        res.status(200).json({ message: 'Customer deleted successfully' });
     } catch (error) {
         res.status(500).json({ error: 'Internal server error' });
     }
